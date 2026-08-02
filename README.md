@@ -1,5 +1,5 @@
 # CHALANA
-# MVP: The Chalana Suite is a software program that helps small businesses track invoices, manage inventory, assess operational costs, and assign invoices and employees to work orders. Chalana utilizes a client-based organization system to make paper-based methods more efficient and speed up job workflow. Over time, businesses will be able to analyze what consistently works for them and what aspects of their business help maximize profits 
+The Chalana Suite is a software program that helps small businesses track invoices, manage inventory, assess operational costs, and assign invoices and employees to work orders. Chalana utilizes a client-based organization system to make paper-based methods more efficient and speed up job workflow. Over time, businesses will be able to analyze what consistently works for them and what aspects of their business help maximize profits 
 # Invoices: name/address, number, total cost, edit, assign to work order, status
 # Work Orders: name/address, assign employee, tool list, view/edit, budget 
 # Tools: name, location, quantity available, job type association

@@ -1,0 +1,15 @@
+$kind: http-request
+name: Create Job
+method: POST
+url: 'http://localhost:3000/jobs'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "client_name": "Martinez Roofing",
+      "description": "Replace roof on Elm St"
+    }

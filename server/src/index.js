@@ -4,6 +4,7 @@ const jobCostsRouter = require('./routes/jobCosts');
 const toolsRouter = require('./routes/tools');
 const invoicesRouter = require('./routes/invoices');
 const pool = require('./db');
+const cors = require('cors');
 
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
@@ -15,6 +16,7 @@ pool.query('SELECT NOW()', (err, res) => {
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use('/jobs', jobsRouter);
 app.use('/job-costs', jobCostsRouter);
 app.use('/tools', toolsRouter);

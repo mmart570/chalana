@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function JobsPage() {
   const [jobs, setJobs] = useState([]);
@@ -37,7 +38,7 @@ function JobsPage() {
           <tbody>
             {jobs.map(job => (
               <tr key={job.id}>
-                <td>{job.client_name}</td>
+                <td><Link to={`/jobs/${job.id}`}>{job.client_name}</Link></td>
                 <td>{job.description}</td>
                 <td>{job.status}</td>
                 <td>{new Date(job.created_at).toLocaleDateString()}</td>

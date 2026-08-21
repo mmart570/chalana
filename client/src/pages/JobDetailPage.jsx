@@ -11,6 +11,7 @@ function JobDetailPage() {
   const [type, setType] = useState('labor');
   const [amount, setAmount] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [invoice, setInvoice] = useState(null);
 
 
   useEffect(() => {
@@ -46,6 +47,27 @@ function JobDetailPage() {
       setCosts(res.data);
       setDescription('');
       setAmount('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const generateInvoice = async () => {
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/invoices`, {
+          job_id: id
+        });
+      setInvoice(res.data);  // store the result
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const markPaid = async () => {
+    try {
+      const res = await axios.patch(`${import.meta.env.VITE_API_URL}/invoices/${invoice.id}`, {
+        payment_status: 'paid'
+      });
+      setInvoice(res.data);
     } catch (err) {
       console.error(err);
     }
@@ -116,6 +138,17 @@ function JobDetailPage() {
         </table>
       )}
       <p><strong>Total: ${total.toFixed(2)}</strong></p>
+      <button onClick={generateInvoice}>
+        Generate Invoice
+      </button>
+      {invoice && (
+        <div>
+          <h2>Invoice</h2>
+          <p>Total: ${parseFloat(invoice.total_amount).toFixed(2)}</p>
+          <p>Status: {invoice.payment_status}</p>
+          <button onClick={markPaid}>Mark Paid</button>
+        </div>
+      )}
     </div>
   );
 }

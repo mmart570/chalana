@@ -10,7 +10,9 @@ function App() {
 
   return (
     <div>
-      <h1>CHALANA</h1>
+      <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <h1>CHALANA</h1>
+      </Link>
       <nav>
         <Link to="/">Jobs</Link> | <Link to="/tools">Tools</Link>
       </nav>

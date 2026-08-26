@@ -34,6 +34,14 @@ function JobDetailPage() {
 
   const addCosts = async (e) => {
     e.preventDefault();
+    if (!description.trim()) {
+      alert('Please add a description.');
+      return;
+    }
+    if (!amount || parseFloat(amount) <= 0) {
+      alert('Please enter a valid amount.');
+      return;
+    }
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/job-costs`, {
         job_id: id, type, description, amount
@@ -43,15 +51,21 @@ function JobDetailPage() {
       setDescription('');
       setAmount('');
     } catch (err) {
+      alert('Failed to add cost. Try again.');
       console.error(err);
     }
   };
 
   const generateInvoice = async () => {
+    if (costs.length === 0) {
+      alert('Add at least one cost before generating an invoice.');
+      return;
+    }
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/invoices`, { job_id: id });
       setInvoice(res.data);
     } catch (err) {
+      alert('Failed to generate invoice. Try again.');
       console.error(err);
     }
   };

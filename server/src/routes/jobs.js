@@ -16,6 +16,9 @@ router.get('/', async (req, res) => {
 // POST create a job
 router.post('/', async (req, res) => {
   const { client_name, description } = req.body;
+  if (!client_name || !client_name.trim()) {
+    return res.status(400).json({ error: 'Client name is required' });
+  }
   try {
     const result = await pool.query(
       'INSERT INTO jobs (client_name, description) VALUES ($1, $2) RETURNING *',

@@ -20,6 +20,9 @@ router.get('/:jobId', async (req, res) => {
 // POST add a cost to a job
 router.post('/', async (req, res) => {
   const { job_id, type, description, amount } = req.body;
+  if (!job_id || !amount || parseFloat(amount) <= 0) {
+    return res.status(400).json({ error: 'job_id and a valid amount are required' });
+  }
   try {
     const result = await pool.query(
       'INSERT INTO job_costs (job_id, type, description, amount) VALUES ($1, $2, $3, $4) RETURNING *',

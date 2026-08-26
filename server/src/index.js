@@ -16,7 +16,9 @@ pool.query('SELECT NOW()', (err, res) => {
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['https://chalana-j7wxc74yp-mmart570s-projects.vercel.app', 'http://localhost:5173']
+}));
 app.use('/jobs', jobsRouter);
 app.use('/job-costs', jobCostsRouter);
 app.use('/tools', toolsRouter);

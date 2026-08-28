@@ -1,5 +1,5 @@
 # CHALANA
-The Chalana Suite is a software program that helps small businesses track invoices, manage inventory, assess operational costs, and assign invoices and employees to work orders. Chalana utilizes a client-based organization system to make paper-based methods more efficient and speed up job workflow. Over time, businesses will be able to analyze what consistently works for them and what aspects of their business help maximize profits. The name is inspired by the Spanish word  *chalán* (helper), with the suffix -a added in honor of my sister.
+The Chalana Suite is a software program that helps small businesses track invoices, manage inventory, assess operational costs, and assign invoices and employees to work orders. Chalana utilizes a client-based organization system to make paper-based methods more efficient and speed up job workflow. Over time, businesses will be able to analyze what consistently works for them and what aspects of their business help maximize profits.
 
 **Live app:** https://chalana-xi.vercel.app/
 
@@ -62,7 +62,7 @@ See `server/src/db/schema.sql` for the full schema.
 
 ## Background
 
-Built in one month, 30 minutes a day, while working full-time at a family business. Designed to replace a paper-based workflow with a real product my dad can use daily.
+The name is inspired by the Spanish word  *chalán* (helper), with the suffix -a added in honor of my sister. Built in one month, 30 minutes a day, while working full-time at a family business. Designed to replace a paper-based workflow with a real product my dad can use daily.
 
 ---
 

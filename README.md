@@ -44,7 +44,9 @@ npm run dev
 **server/.env**
 
 DATABASE_URL=your_postgres_connection_string
+
 **client/.env**
+
 VITE_API_URL=http://localhost:3000
 
 ## Database schema

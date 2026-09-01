@@ -5,6 +5,8 @@ const toolsRouter = require('./routes/tools');
 const invoicesRouter = require('./routes/invoices');
 const pool = require('./db');
 const cors = require('cors');
+const authRouter = require('./routes/auth');
+const authMiddleware = require('./middleware/auth');
 
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
@@ -19,10 +21,13 @@ app.use(express.json());
 app.use(cors({
   origin: ['https://chalana-j7wxc74yp-mmart570s-projects.vercel.app', 'http://localhost:5173']
 }));
-app.use('/jobs', jobsRouter);
-app.use('/job-costs', jobCostsRouter);
-app.use('/tools', toolsRouter);
-app.use('/invoices', invoicesRouter);
+
+// Protected routes — add authMiddleware to all of these
+app.use('/auth', authRouter);
+app.use('/jobs', authMiddleware, jobsRouter);
+app.use('/job-costs', authMiddleware, jobCostsRouter);
+app.use('/tools', authMiddleware, toolsRouter);
+app.use('/invoices', authMiddleware, invoicesRouter);
 
 app.get('/', (req, res) => {
   res.json({ message: 'CHALANA API running' });

@@ -20,7 +20,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: ['https://chalana-j7wxc74yp-mmart570s-projects.vercel.app', 'http://localhost:5173']
+  origin: [
+    'https://chalana-xi.vercel.app',
+    'https://chalana-j7wxc74yp-mmart570s-projects.vercel.app',
+    'http://localhost:5173'
+  ]
 }));
 
 // Protected routes — add authMiddleware to all of these

@@ -3,7 +3,7 @@ The Chalana Suite is a software program that helps small businesses transition f
 
 **Live app:** https://chalana-xi.vercel.app/
 
-**Version:** 1.0.0
+**Version:** 1.1.0 - added auth landing page
 
 <img width="2056" height="1072" alt="Screenshot 2026-08-24 at 9 51 01 PM" src="https://github.com/user-attachments/assets/d146e15b-ab1c-46e4-948a-41b825b716d1" />
 
